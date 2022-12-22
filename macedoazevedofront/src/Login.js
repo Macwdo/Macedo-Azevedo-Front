@@ -13,18 +13,13 @@ export default function Login(){
       </div>
     )
 
-      async function pegarDados (){
+    async function pegarDados (){
       var inputNome = document.getElementById("nome");
       var inputSenha = document.getElementById("senha");
       var senha = inputSenha.value
       var nome = inputNome.value;
-      const token = await get_jwt(nome, senha) ;
+      const token = await get_jwt(nome, senha);
       console.log(token);
-      alert(token);
-    
-      //var input = document. querySelector("#name");
-      //var texto = input. value;
-      //console. log(texto);
       }
 
       async function get_jwt(username, password) {
@@ -43,7 +38,7 @@ export default function Login(){
             headers: headers,
             body: body
         }
-    
+
         const token = await fetch('https://gordinho.macedoweb.com.br/api/token/', config).then(
             objects => {
                 return objects.json()
@@ -52,3 +47,4 @@ export default function Login(){
         return token
     }
 }
+
