@@ -24,7 +24,7 @@ body{
 }
 
 #nome, #senha{
-    height: 90px;
+    height: 40px;
 }
 
 #btn-enviar{

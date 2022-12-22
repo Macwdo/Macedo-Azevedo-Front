@@ -4,8 +4,8 @@ export default function Login(){
         <div id='Login-principal'>
       
       <div id='form'>
-      <input id="user" placeholder='Insira seu nome'/>
-      <input id="password" placeholder='Insira sua senha'/>
+      <input id="nome" placeholder='Insira seu nome'/>
+      <input id="senha" placeholder='Insira sua senha'/>
       <button id="btn-enviar"  onClick={pegarDados}>Entrar</button>
       </div>
       </div>
