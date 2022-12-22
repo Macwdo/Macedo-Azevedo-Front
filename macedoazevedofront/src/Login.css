@@ -24,7 +24,7 @@ body{
 }
 
 #nome, #senha{
-    height: 30px;
+    height: 90px;
 }
 
 #btn-enviar{
@@ -48,4 +48,3 @@ input{
     margin-top: 30px;
     border-radius: 5px;
 }
-

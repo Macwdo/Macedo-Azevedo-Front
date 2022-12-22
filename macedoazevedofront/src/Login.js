@@ -1,15 +1,13 @@
-import "./Login.css"
+import "./Login.css";
 export default function Login(){
     return (
         <div id='Login-principal'>
       
       <div id='form'>
-      <input id="nome" placeholder='Insira seu nome'/>
-        <input id="senha" placeholder='Insira sua senha'/>
-        <button id="btn-enviar"  onClick={pegarDados}>Entrar</button>
+      <input id="user" placeholder='Insira seu nome'/>
+      <input id="password" placeholder='Insira sua senha'/>
+      <button id="btn-enviar"  onClick={pegarDados}>Entrar</button>
       </div>
-        
-      
       </div>
     )
 
