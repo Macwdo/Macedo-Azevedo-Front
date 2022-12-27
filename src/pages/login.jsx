@@ -8,7 +8,7 @@ const Login = () => {
                 <div className='form'>
                     <label className="labelNome">Nome</label>
                     <input className="nome" type='text'/>
-                    <label className="labelSenha">senha</label>
+                    <label className="labelSenha">Senha</label>
                     <input className="senha" type="password" />
                     <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
                 </div>
