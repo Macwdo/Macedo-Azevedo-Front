@@ -19,11 +19,30 @@ const NovoProcesso = () => {
                         <input type="text" />
                         <button>Novo</button>
                     </div>
-                    <div className="secondSelection">
+                </div>
+                <div className="secondSelection">
                         <div className="left">
                             <div className="autor-reu">
                                 <button className="buttonAutor">Autor</button>
                                 <button className="buttonReu">Réu</button>
+                            </div>
+                            <div className="selecaoAdvogado">
+                                <div className="container">
+                                <label>Advogado</label>
+                                <button>Advogado</button>
+                                </div>
+                                <div className="container">
+                                <label>Cliente de</label>
+                                <button>Advogado</button>
+                                </div>
+                                <div className="container">
+                                <label>Colaborador</label>
+                                <button>Advogado</button>
+                                </div>
+                                <div className="container">
+                                <label>Assunto</label>
+                                <button>Direito Trabalhista</button>
+                                </div>
                             </div>
                         </div>
                         <div className="right">
@@ -45,7 +64,6 @@ const NovoProcesso = () => {
                             </div>
                         </div>
                     </div>
-                </div>
             </form>    
         </div>
     )
