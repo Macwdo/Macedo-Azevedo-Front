@@ -2,15 +2,19 @@ import React from "react"
 
 const Login = () => {
     return (
+        <body>
         <div className="container">
             <div className='login'>
                 <div className='form'>
-                    <input className="nome" placeholder='Insira seu nome'/>
-                    <input className="senha" placeholder='Insira sua senha' type="text" />
+                    <label className="labelNome">Nome</label>
+                    <input className="nome" type='text'/>
+                    <label className="labelSenha">senha</label>
+                    <input className="senha" type="password" />
                     <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
                 </div>
             </div>
         </div>
+        </body>
     )
 
     async function pegarDados (){
