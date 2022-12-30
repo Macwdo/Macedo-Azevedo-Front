@@ -161,6 +161,7 @@ $modal-grey: #D9D9D9;
         margin: auto;
 
         .form{
+            margin-top: 60px;
             display: flex;
             justify-content: center; 
             align-items: center;
@@ -180,7 +181,7 @@ $modal-grey: #D9D9D9;
               
         .btn-enviar{
             display: flex;
-            margin-top: 80px;
+            margin-top: 60px;
             margin-left: 14px;
             height: 70px;
             width: 260px;
@@ -220,6 +221,13 @@ $modal-grey: #D9D9D9;
           .labelSenha {
             margin-left: -235px;
             font-weight: bold;
+          }
+
+          .imageLogin{
+            width: 80px;
+            height: 80px;
+            margin-top: -300px;
+            position:absolute;
           }
     }
 }

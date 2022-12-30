@@ -1,15 +1,17 @@
-import React from "react"
+import React from "react";
+import imageLogin from "../img/imageLogin.png"
 
 const Login = () => {
     return (
         <body>
         <div className="container">
             <div className='login'>
+            <img className="imageLogin" src={imageLogin} alt="logo"/>
                 <div className='form'>
                     <label className="labelNome">Nome</label>
                     <input className="nome" type='text'/>
                     <label className="labelSenha">Senha</label>
-                    <input className="senha" type="password" />
+                    <input className="senha" type="text" />
                     <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
                 </div>
             </div>
@@ -24,6 +26,7 @@ const Login = () => {
       var nome = inputNome[0].value
       const token = await get_jwt(nome, senha);
       console.log(token);
+      window.location.href = ("home.jsx")
       }
 
       async function get_jwt(username, password) {
