@@ -26,7 +26,19 @@ const Login = () => {
       var nome = inputNome[0].value
       const token = await get_jwt(nome, senha);
       console.log(token);
-      window.location.href = ("home.jsx")
+      function getStatusCode(response) {
+        return response.status;
+      }
+      try {
+        const response = await fetch('https://gordinho.macedoweb.com.br/api/token/');
+        const statusCode = getStatusCode(response);
+        console.log(statusCode); 
+        if (statusCode === 200) {
+          window.location.href = ("home.jsx");
+        }
+      } catch (error) {
+        console.error(error);
+      }
       }
 
       async function get_jwt(username, password) {
