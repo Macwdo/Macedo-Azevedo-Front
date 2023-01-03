@@ -156,8 +156,8 @@ $modal-grey: #D9D9D9;
         align-items: center;
         justify-content: center;
         border-radius: 10px;
-        width: 300px;
-        height: 400px;
+        width: 537px;
+        height: 600px;
         margin: auto;
 
         .form{
@@ -171,7 +171,7 @@ $modal-grey: #D9D9D9;
         .nome, .senha{
                 border: none;
                 width: 260px;
-                height: 24px;
+                height: 40px;
                 font-size: 16px;
                 border: 1px solid rgb(255, 255, 255);
                 border-radius: 4px;
@@ -182,9 +182,9 @@ $modal-grey: #D9D9D9;
         .btn-enviar{
             display: flex;
             margin-top: 60px;
-            margin-left: 14px;
-            height: 70px;
-            width: 260px;
+            margin-left: 0px;
+            height: 90px;
+            width: 290px;
             align-items: center;
             justify-content: center;
             font-size: 14px;
@@ -224,9 +224,9 @@ $modal-grey: #D9D9D9;
           }
 
           .imageLogin{
-            width: 80px;
-            height: 80px;
-            margin-top: -300px;
+            width: 140px;
+            height: 140px;
+            margin-top: -400px;
             position:absolute;
           }
     }
