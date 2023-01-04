@@ -24,12 +24,23 @@ const Login = () => {
       var inputSenha = document.getElementsByClassName("senha");
       var senha = inputSenha[0].value
       var nome = inputNome[0].value
-      const token = await get_jwt(nome, senha);
-      if (token.status === 200){
-        window.location.href = "home.jsx";
-      } else {
-        console.log("Senha errada")
-      }
+      const response = await get_jwt(nome, senha);
+      if (response.ok){
+        const token = await response.json().then(
+          obj => {
+            return obj;
+          }
+        )
+        console.log(token)
+        window.location.href = "home.jsx"
+     } else {
+      console.log("Senha incorreta")
+     }
+    
+      
+
+
+
       
       }
 
@@ -51,9 +62,13 @@ const Login = () => {
         }
 
         const token = await fetch('https://gordinho.macedoweb.com.br/api/token/', config).then(
-            objects => {
-                return objects
+          response => {
+                return response
             }
+        ).catch(
+          error => {
+            return error
+          }
         )
         return token
     }
