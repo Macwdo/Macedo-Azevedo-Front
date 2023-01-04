@@ -36,10 +36,6 @@ const Login = () => {
      } else {
       console.log("Senha incorreta")
      }
-    
-      
-
-
 
       
       }
