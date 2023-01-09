@@ -39,6 +39,7 @@ const Login = () => {
       } catch (error) {
         console.error(error);
       }
+        
       }
 
       async function get_jwt(username, password) {
