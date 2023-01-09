@@ -8,10 +8,10 @@ const Login = () => {
             <div className='login'>
             <img className="imageLogin" src={imageLogin} alt="logo"/>
                 <div className='form'>
-                    <label className="labelNome">Nome</label>
-                    <input className="nome" type='text'/>
+                    <label className="labelNome">User</label>
+                    <input className="nome" type='text' placeholder="Digite seu usuario"/>
                     <label className="labelSenha">Senha</label>
-                    <input className="senha" type="text" />
+                    <input className="senha" type="password"  placeholder="Digite sua senha"/>
                     <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
                 </div>
             </div>
