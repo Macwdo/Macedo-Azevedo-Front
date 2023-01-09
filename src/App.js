@@ -30,12 +30,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-      },
-      {
-        path: "/processos",
-        element: <Processos />,
       }
     ]
+  },
+  {
+    path: "/processos",
+    element: <Processos />,
   },
  {
   path: "/login",

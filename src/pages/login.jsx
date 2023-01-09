@@ -8,10 +8,10 @@ const Login = () => {
             <div className='login'>
             <img className="imageLogin" src={imageLogin} alt="logo"/>
                 <div className="form">
-                    <label className="labelNome">Usuario</label>
-                    <input className="nome" type='text'/>
+                    <label className="labelNome">Nome</label>
+                    <input className="nome" type='text' placeholder="Digite seu usuario"/>
                     <label className="labelSenha">Senha</label>
-                    <input className="senha" type="password" />
+                    <input className="senha" type="password" placeholder="Digite sua senha"/>
                     <button className="btn-enviar" type="submit" onClick={main}>Entrar</button>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const URLPr = 'https://gordinho.macedoweb.com.br/api/verify/'
 
 async function main () {
   const username = document.querySelector('.nome')
-  const password = document.querySelector('.senha')
+  const password = document.querySelector('.senha') 
   
   const response = await getRequest(username.value, password.value)
   if(response.ok){
@@ -99,8 +99,5 @@ async function getRequest(username, password){
   )
   return request;
 }
-
-
-
 
 export default Login;
