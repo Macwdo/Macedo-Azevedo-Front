@@ -21,6 +21,7 @@ const Login = () => {
 
 }
 
+const form = document.querySelector('.form')
 const URL = 'https://gordinho.macedoweb.com.br/api/token/'
 const URLPr = 'https://gordinho.macedoweb.com.br/api/verify/'
 
@@ -48,32 +49,6 @@ function errorMessage(field, message){
   div.innerHTML = message;
   div.classList.add("error-text")
   field.insertAdjacentElement('afterend', div)
-}
-
-async function requestTest(token){
-  const headers = {
-    'Content-Type': 'application/json'
-  };
-  
-  token = token.split(' ')
-  const body = JSON.stringify({
-    'token': token[1]
-  })
-
-  const config = {
-      method: 'POST',
-      headers: headers,
-      body: body
-  }
-
-  const request = fetch(URLPr, config).then(
-    response => {
-      return response;
-    }
-  )
-
-  return request;
-
 }
 
 async function getRequest(username, password){
