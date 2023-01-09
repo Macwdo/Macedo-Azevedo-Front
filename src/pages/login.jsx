@@ -7,65 +7,100 @@ const Login = () => {
         <div className="container">
             <div className='login'>
             <img className="imageLogin" src={imageLogin} alt="logo"/>
-                <div className='form'>
-                    <label className="labelNome">User</label>
-                    <input className="nome" type='text' placeholder="Digite seu usuario"/>
+                <div className="form">
+                    <label className="labelNome">Usuario</label>
+                    <input className="nome" type='text'/>
                     <label className="labelSenha">Senha</label>
-                    <input className="senha" type="password"  placeholder="Digite sua senha"/>
-                    <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
+                    <input className="senha" type="password" />
+                    <button className="btn-enviar" type="submit" onClick={main}>Entrar</button>
                 </div>
             </div>
         </div>
         </body>
     )
 
-    async function pegarDados (){
-      var inputNome = document.getElementsByClassName("nome");
-      var inputSenha = document.getElementsByClassName("senha");
-      var senha = inputSenha[0].value
-      var nome = inputNome[0].value
-      const token = await get_jwt(nome, senha);
-      console.log(token);
-      function getStatusCode(response) {
-        return response.status;
-      }
-      try {
-        const response = await fetch('https://gordinho.macedoweb.com.br/api/token/');
-        const statusCode = getStatusCode(response);
-        console.log(statusCode); 
-        if (statusCode === 200) {
-          window.location.href = ("home.jsx");
-        }
-      } catch (error) {
-        console.error(error);
-      }
-        
-      }
+}
 
-      async function get_jwt(username, password) {
+const URL = 'https://gordinho.macedoweb.com.br/api/token/'
+const URLPr = 'https://gordinho.macedoweb.com.br/api/verify/'
 
-        const headers = {
-        'Content-Type': 'application/json'
-        };
-    
-        const body = JSON.stringify({
-          "username": `${username}`,
-          "password": `${password}`
-      })
-    
-        const config = {
-            method: 'POST',
-            headers: headers,
-            body: body
-        }
 
-        const token = await fetch('https://gordinho.macedoweb.com.br/api/token/', config).then(
-            objects => {
-                return objects.json()
-            }
-        )
-        return token
+async function main () {
+  const username = document.querySelector('.nome')
+  const password = document.querySelector('.senha')
+  
+  const response = await getRequest(username.value, password.value)
+  if(response.ok){
+    const token = await response.json();
+    localStorage.setItem('Authorization', `Bearer ${token.access}` )
+    window.location.href = 'home.jsx'
+  }else {
+      const error = document.querySelector('.error-text') === null ? true: false;
+      if (error){
+        errorMessage(password, 'Credenciais Invalidas');
+      }
+  }
+}
+
+
+function errorMessage(field, message){
+  const div = document.createElement("div");
+  div.innerHTML = message;
+  div.classList.add("error-text")
+  field.insertAdjacentElement('afterend', div)
+}
+
+async function requestTest(token){
+  const headers = {
+    'Content-Type': 'application/json'
+  };
+  
+  token = token.split(' ')
+  const body = JSON.stringify({
+    'token': token[1]
+  })
+
+  const config = {
+      method: 'POST',
+      headers: headers,
+      body: body
+  }
+
+  const request = fetch(URLPr, config).then(
+    response => {
+      return response;
     }
-};
+  )
+
+  return request;
+
+}
+
+async function getRequest(username, password){
+  const headers = {
+    'Content-Type': 'application/json'
+  };
+
+  const body = JSON.stringify({
+    "username": `${username}`,
+    "password": `${password}`
+  })
+
+  const config = {
+      method: 'POST',
+      headers: headers,
+      body: body
+  }
+  
+  const request = fetch(URL, config).then(
+    response => {
+      return response;
+    }
+  )
+  return request;
+}
+
+
+
 
 export default Login;
