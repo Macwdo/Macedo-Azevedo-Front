@@ -14,6 +14,9 @@ $modal-grey: #D9D9D9;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url(https://images-ext-2.discordapp.net/external/RD50YTT4tzSUzHSjGi0K8PON0UGfOfYsyhORJel3yAQ/https/shtheme.org/preview/mcgill/img/bg.jpg?width=710&height=473);
+        background-repeat: no-repeat;
+        background-size: 100%, 100%;
     }
     display: flex;
     justify-content: center;
@@ -151,14 +154,17 @@ $modal-grey: #D9D9D9;
     }
 
     .login{
-        background-color: rgb(221, 220, 220);
+        background-color: #eeeeee;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
+        padding-top: 35px;
+        padding-bottom: -40px;
         width: 460px;
-        height: 600px;
+        height: 560px;
         margin: auto;
+        font-family: 'Inter';
+        font-style: normal;
 
         .form{
             margin-top: 60px;
@@ -188,13 +194,15 @@ $modal-grey: #D9D9D9;
             width: 290px;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
             background-color: #55b31f;
             color: white;
             border: none;
             border-radius: 5px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
             font-size: 20px;
-            font-weight: bold;
+            line-height: 24px;
         }
         
         .btn-enviar:hover{
@@ -215,13 +223,17 @@ $modal-grey: #D9D9D9;
           }
 
           .labelNome {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
             margin-left: -235px;
-            font-weight: bold;
           }
           
           .labelSenha {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
             margin-left: -235px;
-            font-weight: bold;
           }
 
           .imageLogin{
