@@ -4,7 +4,7 @@ import imageLogin from "../img/imageLogin.png"
 const Login = () => {
     return (
         <body>
-        <div className="container">
+        <div className="containerLogin">
             <div className='login'>
             <img className="imageLogin" src={imageLogin} alt="logo"/>
                 <div className="form">

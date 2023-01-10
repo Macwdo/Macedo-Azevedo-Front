@@ -24,13 +24,18 @@ $modal-grey: #D9D9D9;
     justify-content: center;
 
     .link{
+        text-align: center;
         text-decoration: none; 
         color: #fff;              
     }
 
+    .link:hover{
+           background-color: #1e393f;  
+    }
+
     .container{
         width: 100%;
-        // margin-left: $width-sidebar; Error do Login
+        margin-left: $width-sidebar;
 
     }
 
@@ -39,7 +44,7 @@ $modal-grey: #D9D9D9;
         display: flex;
         flex-direction: column;
         height: 100%;
-        width: 18vh;
+        width: 16vh;
         z-index: 1;
         position: fixed;
         padding: 2vh 2vh;
@@ -60,42 +65,86 @@ $modal-grey: #D9D9D9;
             display: flex;
             justify-content: start;
             align-items: center;
-            width: 100%;
-            padding: 0 0 10% 10%;
+            width: 110%;
+            padding: 10% 0 10% 10%;
+            margin-top: 15px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            margin-left: -0px;
         }
+
     }
 
     .navbar{
         height: 8vh;
 
-        .container{
+        .containerHome{
             width: calc(100% - 5%);
             border-radius: 0.2rem;
             margin: 1% 1.5%;
             padding: 0 1%;
-            height: 8vh;
+            height: 10vh;
             background-color: $standard--blue;
             display: grid;
             grid-template-columns: 1fr 2fr 1fr 1fr;
             grid-gap: 1%;
             align-items: center;
+            margin-top: 0;
 
             .textoAzul{
                 color: #00D1FF;
                 text-transform: uppercase;
             }
 
-            .textoCabecalho{
-                color: #fff;
+            .textoCabecalhoProcesso, .textoCabecalhoHonorario{
+                color: rgb(255, 255, 255);
             }
 
-            .botao{
-
+            .textoCabecalhoHonorario{
+                margin-left: -90px;
             }
 
             .sair{
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
+                text-align: center;
+                position: absolute;
+                margin-left: 1020px;
+            }
+
+            .linkSair{
+                width: 100px;
+                height: 30px;
+                background: #FF4343;
+                border-radius: 2px;
+                text-decoration: none;
+                color: white;
+                padding-top: 8px;
+            }
+
+            .linkSair:hover{
+                background: #d62020;
+            }
+
+            .newProcess{
+                background-color: #00D1FF;
+                font-family: 'Inter';
+                font-style: normal;
+                color: white;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 24px;
+                width: 220px;
+                height: 40px;
+                border-radius: 2px;
+            }
+
+            .newProcess:hover{
+                cursor: pointer;
+                background-color: #0eb3d8;
             }
         }
     }

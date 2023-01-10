@@ -12,11 +12,11 @@ const Navbar = () => {
         <>
             <BarraLateral/>
             <div className="navbar">
-            <div className="container">
-                <p className="textoCabecalho">Processo: <span className="textoAzul">53</span></p>
-                <p className="textoCabecalho">Honorários em <span className="textoAzul">R$ 1.000.000,00</span></p>
+            <div className="containerHome">
+                <p className="textoCabecalhoProcesso">Processo: <span className="textoAzul">53</span></p>
+                <p className="textoCabecalhoHonorario">Honorários em <span className="textoAzul">R$ 1.000.000,00</span></p>
 
-                <button onClick={() => setNovoProcesso(true)} className="botao">Novo Processo</button>
+                <button onClick={() => setNovoProcesso(true)} className="newProcess">Novo Processo</button>
                 {novoProcesso ? 
                 <Modal onClose={() => setNovoProcesso(false)}>
                     <NovoProcesso />
@@ -24,7 +24,7 @@ const Navbar = () => {
                     : null}
                 
                 <div className="sair">
-                    <Link className="link">Sair</Link>
+                    <Link className="linkSair">Sair</Link>
                 </div>
             </div>
         </div>
