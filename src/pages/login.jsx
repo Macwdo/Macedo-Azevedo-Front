@@ -21,9 +21,7 @@ const Login = () => {
 
 }
 
-const form = document.querySelector('.form')
 const URL = 'https://gordinho.macedoweb.com.br/api/token/'
-const URLPr = 'https://gordinho.macedoweb.com.br/api/verify/'
 
 
 async function main () {
@@ -31,10 +29,11 @@ async function main () {
   const password = document.querySelector('.senha') 
   
   const response = await getRequest(username.value, password.value)
+
   if(response.ok){
     const token = await response.json();
-    localStorage.setItem('Authorization', `Bearer ${token.access}` )
-    window.location.href = 'home.jsx'
+      localStorage.setItem('Authorization', `Bearer ${token.access}` )
+      window.location.href = "/"
   }else {
       const error = document.querySelector('.error-text') === null ? true: false;
       if (error){

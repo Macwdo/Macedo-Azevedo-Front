@@ -5,13 +5,10 @@ import UserAuth from '../Services/UserService';
 const userService = new UserAuth();
 
 const ProtectedRoutes = ({children}) => {
-  const res = async () => {
-    const response = await userService.verify();
-    return response
-  }
-  const usuarioAutenticado = res();
-  console.log(usuarioAutenticado)
-  return usuarioAutenticado ? children : <Routering/>
+
+  return userService.request().then(response => {return response.ok}).catch(
+    e => {return false}
+  ) && localStorage.getItem("Authorization") != null ? children : <Routering/>
 }
  
 export default ProtectedRoutes;
