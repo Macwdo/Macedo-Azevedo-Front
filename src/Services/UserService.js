@@ -4,56 +4,40 @@ class UserAuth {
         
     }
 
-    async verify() {
+    verify () {
         const token = localStorage.getItem('Authorization')
-        const headers = {
-            'Content-Type': 'application/json'
-        };
-        
-        token = token.split(' ')
-        const body = JSON.stringify({
-            'token': token[1]
-        })
-        
-        const config = {
-            method: 'POST',
-            headers: headers,
-            body: body
-        }
-        
-        const request = fetch(URLPr, config).then(
-            response => {
-            return response;
-            }
-        )
-        
-        return request;
-        
+        if (token === null) return false;
+        return true;
     }
 
-    async getRequest(username, password){
-        const headers = {
+    async request() {
+      const URL = "https://gordinho.macedoweb.com.br/api/verify/"
+      const token = localStorage.getItem('Authorization')
+      if(!token) return false;
+      const headers = {
           'Content-Type': 'application/json'
-        };
+      };
       
-        const body = JSON.stringify({
-          "username": `${username}`,
-          "password": `${password}`
-        })
+      token = token.split(' ')
+      const body = JSON.stringify({
+          'token': token[1]
+      })
       
-        const config = {
-            method: 'POST',
-            headers: headers,
-            body: body
-        }
-        
-        const request = fetch(URL, config).then(
-          response => {
-            return response;
-          }
-        )
-        return request;
+      const config = {
+          method: 'POST',
+          headers: headers,
+          body: body
       }
+      
+      const request = fetch(URL, config).then(
+          response => {
+          return response;
+          }
+      )
+      
+      return request;
+      
+  }
 
 }
 

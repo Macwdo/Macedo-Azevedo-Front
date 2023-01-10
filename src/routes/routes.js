@@ -9,6 +9,7 @@ import Home from "../pages/home";
 import Footer from "../components/footer";
 import Login from "../pages/login";
 import Processos from "../pages/processos";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const Layout = () => {
     return(
@@ -24,11 +25,13 @@ const Routering = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route path="/" element={<Home />}/>
-                    <Route path="/processos" element={<Processos />} />
-                </Route>
-                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<Login />} />
+                <Route path="/" element={
+                    <ProtectedRoutes>
+                        <Layout/>
+                        <Home />
+                    </ProtectedRoutes>
+                    }/>
             </Routes>
         </BrowserRouter>
     )

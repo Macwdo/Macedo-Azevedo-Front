@@ -5,8 +5,8 @@ import UserAuth from '../Services/UserService';
 const userService = new UserAuth();
 
 const ProtectedRoutes = ({children}) => {
-  const usuarioAutenticado = userService.verify();
-  return usuarioAutenticado ? children : <Routering/>
+  const authenticated = userService.verify()
+  return authenticated ? children : <Routering/>
 }
  
 export default ProtectedRoutes;
