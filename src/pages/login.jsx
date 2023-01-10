@@ -1,16 +1,22 @@
-import React from "react"
+import React from "react";
+import imageLogin from "../img/imageLogin.png"
 
 const Login = () => {
     return (
+        <body>
         <div className="container">
             <div className='login'>
+            <img className="imageLogin" src={imageLogin} alt="logo"/>
                 <div className='form'>
-                    <input className="nome" placeholder='Insira seu nome'/>
-                    <input className="senha" placeholder='Insira sua senha' type="text" />
+                    <label className="labelNome">Nome</label>
+                    <input className="nome" type='text'/>
+                    <label className="labelSenha">Senha</label>
+                    <input className="senha" type="text" />
                     <button className="btn-enviar"  onClick={pegarDados}>Entrar</button>
                 </div>
             </div>
         </div>
+        </body>
     )
 
     async function pegarDados (){
@@ -18,8 +24,20 @@ const Login = () => {
       var inputSenha = document.getElementsByClassName("senha");
       var senha = inputSenha[0].value
       var nome = inputNome[0].value
-      const token = await get_jwt(nome, senha);
-      console.log(token);
+      const response = await get_jwt(nome, senha);
+      if (response.ok){
+        const token = await response.json().then(
+          obj => {
+            return obj;
+          }
+        )
+        console.log(token)
+        window.location.href = "home.jsx"
+     } else {
+      console.log("Senha incorreta")
+     }
+
+      
       }
 
       async function get_jwt(username, password) {
@@ -40,9 +58,13 @@ const Login = () => {
         }
 
         const token = await fetch('https://gordinho.macedoweb.com.br/api/token/', config).then(
-            objects => {
-                return objects.json()
+          response => {
+                return response
             }
+        ).catch(
+          error => {
+            return error
+          }
         )
         return token
     }
