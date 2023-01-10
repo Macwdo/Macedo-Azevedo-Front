@@ -1,6 +1,5 @@
 import React from "react";
 import imageLogin from "../img/imageLogin.png"
-import {useNavigate } from "react-router-dom";
 
 const Login = () => {
     return (
@@ -31,7 +30,6 @@ async function main () {
   
   const response = await getRequest(username.value, password.value)
 
-  const navigate = useNavigate();
   if(response.ok){
     const token = await response.json();
       localStorage.setItem('Authorization', `Bearer ${token.access}` )
