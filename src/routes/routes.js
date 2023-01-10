@@ -1,22 +1,37 @@
-import React from 'react'
-import ProtectedRoutes from '../Routes/ProtectedRoutes'
+import React from "react";
+import { 
+    BrowserRouter, 
+    Routes,
+    Route,
+    Outlet } from "react-router-dom";
+import Navbar from "../components/navbar";
+import Home from "../pages/home";
+import Footer from "../components/footer";
+import Login from "../pages/login";
+import Processos from "../pages/processos";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+const Layout = () => {
+    return(
+      <>
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </>
+    );
+  };
 
 const Routering = () => {
-  return ( 
-    <Router>
-      <Routes>
-        <Route path="/semrota" element={<h1>Desprotegida</h1>}/>
-        <Route path="/rota" element={
-          <ProtectedRoutes>
-            <h1>Rota Protegida</h1> 
-          </ProtectedRoutes>
-          }
-        />
-      </Routes>
-    </Router>
-   );
+    return(
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route path="/" element={<Home />}/>
+                    <Route path="/processos" element={<Processos />} />
+                </Route>
+                <Route path="/login" element={<Login />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
- 
+
 export default Routering;
