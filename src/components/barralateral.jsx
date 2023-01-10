@@ -9,7 +9,7 @@ const BarraLateral = () => {
             <Link to="/" className="link" >Início</Link>
             <Link to="/financa" className="link" >Finança</Link>
             <Link to="/escritorio" className="link" >Escritório</Link>
-            <Link to="/processo" className="link" >Processo</Link>
+            <Link to="/processos" className="link" >Processo</Link>
         </div>
     )
 };
